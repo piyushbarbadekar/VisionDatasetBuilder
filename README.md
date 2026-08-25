@@ -81,6 +81,7 @@ The goal is to reduce redundant samples before annotation while maintaining visu
                 |  YOLO Dataset    |
                 |     Builder      |
                 +------------------+
+In other words: fewer redundant images → less annotation → less suffering. 😌
 Key Features
 Video Frame Extraction
 
@@ -159,6 +160,7 @@ The number of clusters is configurable.
 YOLO Dataset Preparation
 
 After manual annotation, the selected images and labels can be converted into a YOLO-compatible dataset.
+The idea is simple: show the annotator the useful images, not 47 nearly identical frames of someone turning their head 3 degrees.
 
 The dataset stage:
 
@@ -555,8 +557,12 @@ Representative Sampling
         |
         v
 Efficient Annotation
+
+Built with Python, computer vision, caffeine, and an unreasonable number of terminal commands.
+
 License
 
 This project is intended for educational, research, and experimental use.
 
 Add an appropriate open-source license before distributing the repository publicly.
+If this saves someone from manually labeling thousands of redundant images, mission accomplished. 🫡
