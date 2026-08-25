@@ -1,0 +1,64 @@
+# ==========================================================
+# VisionDatasetBuilder Configuration
+# ==========================================================
+
+input:
+  video_dir: data/videos
+
+output:
+  frame_dir: data/frames
+  crop_dir: data/crops
+  embedding_dir: data/embeddings
+  clustering_dir: data/clustering
+  representative_dir: data/representatives
+  report_dir: reports
+  dataset_dir: data/yolo_dataset
+
+# ----------------------------------------------------------
+# Frame Extraction
+# ----------------------------------------------------------
+
+extraction:
+  interval_seconds: 2
+  image_extension: .jpg
+  jpeg_quality: 95
+
+# ----------------------------------------------------------
+# Object Detection
+# ----------------------------------------------------------
+
+detection:
+  model: models/yolo11s.pt
+  confidence: 0.40
+  min_width: 20
+  min_height: 20
+
+# ----------------------------------------------------------
+# CLIP Embeddings
+# ----------------------------------------------------------
+
+embedding:
+  model: openai/clip-vit-base-patch32
+  batch_size: 64
+  device: auto
+
+# ----------------------------------------------------------
+# Clustering
+# ----------------------------------------------------------
+
+clustering:
+  method: minibatch_kmeans
+  clusters: 100
+  batch_size: 1024
+  random_state: 42
+
+# ----------------------------------------------------------
+# Dataset
+# ----------------------------------------------------------
+
+dataset:
+  train_ratio: 0.80
+  random_seed: 42
+
+  classes:
+    - object
